@@ -1,34 +1,19 @@
-# simple_articles_app
+# Articles app
 
-targets:
-  $default:
-    builders:
-      ferry_generator|graphql_builder:
-        enabled: true
-        options:
-          schema: simple_articles_app|lib/schema/schema.graphql
+This project as a demonstration of the GraphQL use in the Flutter project and it comes with full description of step-by-step guide on Medium.
 
-      ferry_generator|serializer_builder:
-        enabled: true
-        options:
-          schema: simple_articles_app|lib/schema/schema.graphql
+<img src="https://github.com/zeienko-vitalii/simple_articles_app/assets/31850531/a6fe2287-1fcd-4c84-9e89-00b8380f655b" alt="Medium logo" width="100rem" height="100rem"/>
 
-      json_serializable:
-        options:
-          explicit_to_json: true
+# Build and run 
 
+```sh
 
-A new Flutter project.
+flutter pub get
+chmod +x update_schema.sh && ./update_schema.sh
+flutter run
 
-## Getting Started
+```
 
-This project is a starting point for a Flutter application.
+# Preview 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="1267" alt="Paper Wireframe Kit Frame 10677" src="https://github.com/zeienko-vitalii/simple_articles_app/assets/31850531/892415ce-742c-45fc-b3ec-18354f5da667">
