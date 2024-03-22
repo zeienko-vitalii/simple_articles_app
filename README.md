@@ -1,8 +1,8 @@
-<img src="https://github.com/zeienko-vitalii/simple_articles_app/assets/31850531/141aa2bb-9aa7-4ef6-96b5-d7be01831cf6" alt="Medium logo" width="250rem" height="100rem"><a href="www.google.com" /></img>
+[<img src="https://github.com/zeienko-vitalii/simple_articles_app/assets/31850531/141aa2bb-9aa7-4ef6-96b5-d7be01831cf6" alt="Medium logo" width="250rem" height="100rem" />](https://vitaly-dev-official.medium.com/working-with-graphql-in-flutter-heres-your-step-by-step-guide-5f27589bdd17)
 
 # Articles app
 
-This project as a demonstration of the GraphQL use in the Flutter project and it comes with full description of step-by-step guide on **[Medium](www.google.com)**.
+This project as a demonstration of the GraphQL use in the Flutter project and it comes with full description of step-by-step guide on **[Medium](https://vitaly-dev-official.medium.com/working-with-graphql-in-flutter-heres-your-step-by-step-guide-5f27589bdd17)**.
 
 # Build and run 
 
