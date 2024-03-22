@@ -1,0 +1,7 @@
+scripts:
+  generator: flutter pub run build_runner build --delete-conflicting-outputs
+  schema_update: chmod +x update_schema.sh && ./update_schema.sh
+  metrics: flutter pub run dart_code_metrics:metrics lib --reporter=html
+  icons: flutter pub run flutter_launcher_icons -f flutter_icons_gen.yaml
+
+

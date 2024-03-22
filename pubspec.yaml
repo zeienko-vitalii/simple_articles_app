@@ -1,0 +1,38 @@
+name: simple_articles_app
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  ferry: ^0.15.0+1
+  ferry_flutter: ^0.9.0
+  gql_http_link: ^1.0.1+1
+  json_serializable: ^6.7.1
+  flutter_bloc: ^8.1.4
+  bloc: ^8.1.3
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+  markdown: ^7.2.2
+  flutter_markdown: ^0.6.22
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+  ferry_generator: ^0.8.2
+  build_runner: ^2.4.8
+  gql_build: ^0.9.0
+  freezed: ^2.4.7
+
+flutter:
+  uses-material-design: true

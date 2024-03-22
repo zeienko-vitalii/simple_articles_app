@@ -1,0 +1,7 @@
+# import '../fragment/article_fragment.graphql'
+
+query AllArticles {
+  articles {
+    ...ArticleFragment
+  }
+}

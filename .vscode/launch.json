@@ -1,0 +1,30 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "simple_articles_app",
+			"request": "launch",
+			"type": "dart",
+			"args": [
+				"--dart-define",
+				"HYGRAPH_URL=https://eu-central-1-shared-euc1-02.cdn.hygraph.com/content/cltzeuqj00kgk07uwwxl5tw4o/master"
+				// "HYGRAPH_URL=https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cltzeuqj00kgk07uwwxl5tw4o/master"
+			]
+		},
+		{
+			"name": "simple_articles_app (profile mode)",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile"
+		},
+		{
+			"name": "simple_articles_app (release mode)",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release"
+		}
+	]
+}

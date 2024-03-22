@@ -1,0 +1,15 @@
+# import './asset/asset_fragment.graphql'
+
+fragment ArticleFragment on Article {
+	id
+	title
+	subtitle
+	headerImage {
+		...AssetFragment
+	}
+	markdown
+	published
+	publishedAt
+	createdAt
+	updatedAt
+}

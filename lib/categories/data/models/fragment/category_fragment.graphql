@@ -1,0 +1,12 @@
+# import '../../../../article/data/models/fragment/article_fragment.graphql'
+
+fragment CategoryFragment on Category {
+	id
+	title
+
+	articles {
+		... on Article {
+			...ArticleFragment
+		}
+	}
+}
