@@ -20,9 +20,6 @@ Serializer<GAllCategoriesData_categories_articles__asArticle>
 Serializer<GAllCategoriesData_categories_articles__asArticle_headerImage>
     _$gAllCategoriesDataCategoriesArticlesAsArticleHeaderImageSerializer =
     new _$GAllCategoriesData_categories_articles__asArticle_headerImageSerializer();
-Serializer<GAllCategoriesData_categories_articles__asArticle_body>
-    _$gAllCategoriesDataCategoriesArticlesAsArticleBodySerializer =
-    new _$GAllCategoriesData_categories_articles__asArticle_bodySerializer();
 
 class _$GAllCategoriesDataSerializer
     implements StructuredSerializer<GAllCategoriesData> {
@@ -249,14 +246,6 @@ class _$GAllCategoriesData_categories_articles__asArticleSerializer
             specifiedType: const FullType(
                 GAllCategoriesData_categories_articles__asArticle_headerImage)));
     }
-    value = object.body;
-    if (value != null) {
-      result
-        ..add('body')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(
-                GAllCategoriesData_categories_articles__asArticle_body)));
-    }
     value = object.markdown;
     if (value != null) {
       result
@@ -315,12 +304,6 @@ class _$GAllCategoriesData_categories_articles__asArticleSerializer
                   specifiedType: const FullType(
                       GAllCategoriesData_categories_articles__asArticle_headerImage))!
               as GAllCategoriesData_categories_articles__asArticle_headerImage);
-          break;
-        case 'body':
-          result.body.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(
-                      GAllCategoriesData_categories_articles__asArticle_body))!
-              as GAllCategoriesData_categories_articles__asArticle_body);
           break;
         case 'markdown':
           result.markdown = serializers.deserialize(value,
@@ -432,63 +415,6 @@ class _$GAllCategoriesData_categories_articles__asArticle_headerImageSerializer
         case 'mimeType':
           result.mimeType = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GAllCategoriesData_categories_articles__asArticle_bodySerializer
-    implements
-        StructuredSerializer<
-            GAllCategoriesData_categories_articles__asArticle_body> {
-  @override
-  final Iterable<Type> types = const [
-    GAllCategoriesData_categories_articles__asArticle_body,
-    _$GAllCategoriesData_categories_articles__asArticle_body
-  ];
-  @override
-  final String wireName =
-      'GAllCategoriesData_categories_articles__asArticle_body';
-
-  @override
-  Iterable<Object?> serialize(Serializers serializers,
-      GAllCategoriesData_categories_articles__asArticle_body object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'markdown',
-      serializers.serialize(object.markdown,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GAllCategoriesData_categories_articles__asArticle_body deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result =
-        new GAllCategoriesData_categories_articles__asArticle_bodyBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'markdown':
-          result.markdown = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -884,8 +810,6 @@ class _$GAllCategoriesData_categories_articles__asArticle
   final GAllCategoriesData_categories_articles__asArticle_headerImage?
       headerImage;
   @override
-  final GAllCategoriesData_categories_articles__asArticle_body? body;
-  @override
   final String? markdown;
   @override
   final bool? published;
@@ -910,7 +834,6 @@ class _$GAllCategoriesData_categories_articles__asArticle
       this.title,
       this.subtitle,
       this.headerImage,
-      this.body,
       this.markdown,
       this.published,
       this.publishedAt,
@@ -948,7 +871,6 @@ class _$GAllCategoriesData_categories_articles__asArticle
         title == other.title &&
         subtitle == other.subtitle &&
         headerImage == other.headerImage &&
-        body == other.body &&
         markdown == other.markdown &&
         published == other.published &&
         publishedAt == other.publishedAt &&
@@ -964,7 +886,6 @@ class _$GAllCategoriesData_categories_articles__asArticle
     _$hash = $jc(_$hash, title.hashCode);
     _$hash = $jc(_$hash, subtitle.hashCode);
     _$hash = $jc(_$hash, headerImage.hashCode);
-    _$hash = $jc(_$hash, body.hashCode);
     _$hash = $jc(_$hash, markdown.hashCode);
     _$hash = $jc(_$hash, published.hashCode);
     _$hash = $jc(_$hash, publishedAt.hashCode);
@@ -983,7 +904,6 @@ class _$GAllCategoriesData_categories_articles__asArticle
           ..add('title', title)
           ..add('subtitle', subtitle)
           ..add('headerImage', headerImage)
-          ..add('body', body)
           ..add('markdown', markdown)
           ..add('published', published)
           ..add('publishedAt', publishedAt)
@@ -1025,15 +945,6 @@ class GAllCategoriesData_categories_articles__asArticleBuilder
               headerImage) =>
       _$this._headerImage = headerImage;
 
-  GAllCategoriesData_categories_articles__asArticle_bodyBuilder? _body;
-  GAllCategoriesData_categories_articles__asArticle_bodyBuilder get body =>
-      _$this._body ??=
-          new GAllCategoriesData_categories_articles__asArticle_bodyBuilder();
-  set body(
-          GAllCategoriesData_categories_articles__asArticle_bodyBuilder?
-              body) =>
-      _$this._body = body;
-
   String? _markdown;
   String? get markdown => _$this._markdown;
   set markdown(String? markdown) => _$this._markdown = markdown;
@@ -1072,7 +983,6 @@ class GAllCategoriesData_categories_articles__asArticleBuilder
       _title = $v.title;
       _subtitle = $v.subtitle;
       _headerImage = $v.headerImage?.toBuilder();
-      _body = $v.body?.toBuilder();
       _markdown = $v.markdown;
       _published = $v.published;
       _publishedAt = $v.publishedAt?.toBuilder();
@@ -1113,7 +1023,6 @@ class GAllCategoriesData_categories_articles__asArticleBuilder
               title: title,
               subtitle: subtitle,
               headerImage: _headerImage?.build(),
-              body: _body?.build(),
               markdown: markdown,
               published: published,
               publishedAt: _publishedAt?.build(),
@@ -1124,8 +1033,6 @@ class GAllCategoriesData_categories_articles__asArticleBuilder
       try {
         _$failedField = 'headerImage';
         _headerImage?.build();
-        _$failedField = 'body';
-        _body?.build();
 
         _$failedField = 'publishedAt';
         _publishedAt?.build();
@@ -1337,133 +1244,6 @@ class GAllCategoriesData_categories_articles__asArticle_headerImageBuilder
                 r'GAllCategoriesData_categories_articles__asArticle_headerImage',
                 'fileName'),
             mimeType: mimeType);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GAllCategoriesData_categories_articles__asArticle_body
-    extends GAllCategoriesData_categories_articles__asArticle_body {
-  @override
-  final String G__typename;
-  @override
-  final String markdown;
-
-  factory _$GAllCategoriesData_categories_articles__asArticle_body(
-          [void Function(
-                  GAllCategoriesData_categories_articles__asArticle_bodyBuilder)?
-              updates]) =>
-      (new GAllCategoriesData_categories_articles__asArticle_bodyBuilder()
-            ..update(updates))
-          ._build();
-
-  _$GAllCategoriesData_categories_articles__asArticle_body._(
-      {required this.G__typename, required this.markdown})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        G__typename,
-        r'GAllCategoriesData_categories_articles__asArticle_body',
-        'G__typename');
-    BuiltValueNullFieldError.checkNotNull(markdown,
-        r'GAllCategoriesData_categories_articles__asArticle_body', 'markdown');
-  }
-
-  @override
-  GAllCategoriesData_categories_articles__asArticle_body rebuild(
-          void Function(
-                  GAllCategoriesData_categories_articles__asArticle_bodyBuilder)
-              updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GAllCategoriesData_categories_articles__asArticle_bodyBuilder toBuilder() =>
-      new GAllCategoriesData_categories_articles__asArticle_bodyBuilder()
-        ..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GAllCategoriesData_categories_articles__asArticle_body &&
-        G__typename == other.G__typename &&
-        markdown == other.markdown;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, markdown.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(
-            r'GAllCategoriesData_categories_articles__asArticle_body')
-          ..add('G__typename', G__typename)
-          ..add('markdown', markdown))
-        .toString();
-  }
-}
-
-class GAllCategoriesData_categories_articles__asArticle_bodyBuilder
-    implements
-        Builder<GAllCategoriesData_categories_articles__asArticle_body,
-            GAllCategoriesData_categories_articles__asArticle_bodyBuilder> {
-  _$GAllCategoriesData_categories_articles__asArticle_body? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  String? _markdown;
-  String? get markdown => _$this._markdown;
-  set markdown(String? markdown) => _$this._markdown = markdown;
-
-  GAllCategoriesData_categories_articles__asArticle_bodyBuilder() {
-    GAllCategoriesData_categories_articles__asArticle_body._initializeBuilder(
-        this);
-  }
-
-  GAllCategoriesData_categories_articles__asArticle_bodyBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _markdown = $v.markdown;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GAllCategoriesData_categories_articles__asArticle_body other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GAllCategoriesData_categories_articles__asArticle_body;
-  }
-
-  @override
-  void update(
-      void Function(
-              GAllCategoriesData_categories_articles__asArticle_bodyBuilder)?
-          updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GAllCategoriesData_categories_articles__asArticle_body build() => _build();
-
-  _$GAllCategoriesData_categories_articles__asArticle_body _build() {
-    final _$result = _$v ??
-        new _$GAllCategoriesData_categories_articles__asArticle_body._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename,
-                r'GAllCategoriesData_categories_articles__asArticle_body',
-                'G__typename'),
-            markdown: BuiltValueNullFieldError.checkNotNull(
-                markdown,
-                r'GAllCategoriesData_categories_articles__asArticle_body',
-                'markdown'));
     replace(_$result);
     return _$result;
   }

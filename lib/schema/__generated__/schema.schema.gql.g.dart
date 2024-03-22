@@ -1954,13 +1954,6 @@ class _$GArticleCreateInputSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.body;
-    if (value != null) {
-      result
-        ..add('body')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GRichTextAST)));
-    }
     value = object.published;
     if (value != null) {
       result
@@ -2019,10 +2012,6 @@ class _$GArticleCreateInputSerializer
         case 'subtitle':
           result.subtitle = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
-          break;
-        case 'body':
-          result.body.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GRichTextAST))! as GRichTextAST);
           break;
         case 'published':
           result.published = serializers.deserialize(value,
@@ -3241,13 +3230,6 @@ class _$GArticleUpdateInputSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.body;
-    if (value != null) {
-      result
-        ..add('body')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GRichTextAST)));
-    }
     value = object.published;
     if (value != null) {
       result
@@ -3298,10 +3280,6 @@ class _$GArticleUpdateInputSerializer
         case 'subtitle':
           result.subtitle = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
-          break;
-        case 'body':
-          result.body.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GRichTextAST))! as GRichTextAST);
           break;
         case 'published':
           result.published = serializers.deserialize(value,
@@ -3497,13 +3475,6 @@ class _$GArticleUpdateManyInputSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.body;
-    if (value != null) {
-      result
-        ..add('body')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GRichTextAST)));
-    }
     value = object.published;
     if (value != null) {
       result
@@ -3540,10 +3511,6 @@ class _$GArticleUpdateManyInputSerializer
         case 'subtitle':
           result.subtitle = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
-          break;
-        case 'body':
-          result.body.replace(serializers.deserialize(value,
-              specifiedType: const FullType(GRichTextAST))! as GRichTextAST);
           break;
         case 'published':
           result.published = serializers.deserialize(value,
@@ -21608,8 +21575,6 @@ class _$GArticleCreateInput extends GArticleCreateInput {
   @override
   final String? subtitle;
   @override
-  final GRichTextAST? body;
-  @override
   final bool? published;
   @override
   final String? markdown;
@@ -21627,7 +21592,6 @@ class _$GArticleCreateInput extends GArticleCreateInput {
       this.createdAt,
       this.title,
       this.subtitle,
-      this.body,
       this.published,
       this.markdown,
       this.headerImage,
@@ -21651,7 +21615,6 @@ class _$GArticleCreateInput extends GArticleCreateInput {
         createdAt == other.createdAt &&
         title == other.title &&
         subtitle == other.subtitle &&
-        body == other.body &&
         published == other.published &&
         markdown == other.markdown &&
         headerImage == other.headerImage &&
@@ -21665,7 +21628,6 @@ class _$GArticleCreateInput extends GArticleCreateInput {
     _$hash = $jc(_$hash, createdAt.hashCode);
     _$hash = $jc(_$hash, title.hashCode);
     _$hash = $jc(_$hash, subtitle.hashCode);
-    _$hash = $jc(_$hash, body.hashCode);
     _$hash = $jc(_$hash, published.hashCode);
     _$hash = $jc(_$hash, markdown.hashCode);
     _$hash = $jc(_$hash, headerImage.hashCode);
@@ -21681,7 +21643,6 @@ class _$GArticleCreateInput extends GArticleCreateInput {
           ..add('createdAt', createdAt)
           ..add('title', title)
           ..add('subtitle', subtitle)
-          ..add('body', body)
           ..add('published', published)
           ..add('markdown', markdown)
           ..add('headerImage', headerImage)
@@ -21712,10 +21673,6 @@ class GArticleCreateInputBuilder
   String? get subtitle => _$this._subtitle;
   set subtitle(String? subtitle) => _$this._subtitle = subtitle;
 
-  GRichTextASTBuilder? _body;
-  GRichTextASTBuilder get body => _$this._body ??= new GRichTextASTBuilder();
-  set body(GRichTextASTBuilder? body) => _$this._body = body;
-
   bool? _published;
   bool? get published => _$this._published;
   set published(bool? published) => _$this._published = published;
@@ -21745,7 +21702,6 @@ class GArticleCreateInputBuilder
       _createdAt = $v.createdAt?.toBuilder();
       _title = $v.title;
       _subtitle = $v.subtitle;
-      _body = $v.body?.toBuilder();
       _published = $v.published;
       _markdown = $v.markdown;
       _headerImage = $v.headerImage?.toBuilder();
@@ -21778,7 +21734,6 @@ class GArticleCreateInputBuilder
               createdAt: _createdAt?.build(),
               title: title,
               subtitle: subtitle,
-              body: _body?.build(),
               published: published,
               markdown: markdown,
               headerImage: _headerImage?.build(),
@@ -21790,9 +21745,6 @@ class GArticleCreateInputBuilder
         _updatedAt?.build();
         _$failedField = 'createdAt';
         _createdAt?.build();
-
-        _$failedField = 'body';
-        _body?.build();
 
         _$failedField = 'headerImage';
         _headerImage?.build();
@@ -23344,8 +23296,6 @@ class _$GArticleUpdateInput extends GArticleUpdateInput {
   @override
   final String? subtitle;
   @override
-  final GRichTextAST? body;
-  @override
   final bool? published;
   @override
   final String? markdown;
@@ -23361,7 +23311,6 @@ class _$GArticleUpdateInput extends GArticleUpdateInput {
   _$GArticleUpdateInput._(
       {this.title,
       this.subtitle,
-      this.body,
       this.published,
       this.markdown,
       this.headerImage,
@@ -23383,7 +23332,6 @@ class _$GArticleUpdateInput extends GArticleUpdateInput {
     return other is GArticleUpdateInput &&
         title == other.title &&
         subtitle == other.subtitle &&
-        body == other.body &&
         published == other.published &&
         markdown == other.markdown &&
         headerImage == other.headerImage &&
@@ -23395,7 +23343,6 @@ class _$GArticleUpdateInput extends GArticleUpdateInput {
     var _$hash = 0;
     _$hash = $jc(_$hash, title.hashCode);
     _$hash = $jc(_$hash, subtitle.hashCode);
-    _$hash = $jc(_$hash, body.hashCode);
     _$hash = $jc(_$hash, published.hashCode);
     _$hash = $jc(_$hash, markdown.hashCode);
     _$hash = $jc(_$hash, headerImage.hashCode);
@@ -23409,7 +23356,6 @@ class _$GArticleUpdateInput extends GArticleUpdateInput {
     return (newBuiltValueToStringHelper(r'GArticleUpdateInput')
           ..add('title', title)
           ..add('subtitle', subtitle)
-          ..add('body', body)
           ..add('published', published)
           ..add('markdown', markdown)
           ..add('headerImage', headerImage)
@@ -23429,10 +23375,6 @@ class GArticleUpdateInputBuilder
   String? _subtitle;
   String? get subtitle => _$this._subtitle;
   set subtitle(String? subtitle) => _$this._subtitle = subtitle;
-
-  GRichTextASTBuilder? _body;
-  GRichTextASTBuilder get body => _$this._body ??= new GRichTextASTBuilder();
-  set body(GRichTextASTBuilder? body) => _$this._body = body;
 
   bool? _published;
   bool? get published => _$this._published;
@@ -23461,7 +23403,6 @@ class GArticleUpdateInputBuilder
     if ($v != null) {
       _title = $v.title;
       _subtitle = $v.subtitle;
-      _body = $v.body?.toBuilder();
       _published = $v.published;
       _markdown = $v.markdown;
       _headerImage = $v.headerImage?.toBuilder();
@@ -23492,7 +23433,6 @@ class GArticleUpdateInputBuilder
           new _$GArticleUpdateInput._(
               title: title,
               subtitle: subtitle,
-              body: _body?.build(),
               published: published,
               markdown: markdown,
               headerImage: _headerImage?.build(),
@@ -23500,9 +23440,6 @@ class GArticleUpdateInputBuilder
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'body';
-        _body?.build();
-
         _$failedField = 'headerImage';
         _headerImage?.build();
         _$failedField = 'categories';
@@ -23725,8 +23662,6 @@ class _$GArticleUpdateManyInput extends GArticleUpdateManyInput {
   @override
   final String? subtitle;
   @override
-  final GRichTextAST? body;
-  @override
   final bool? published;
   @override
   final String? markdown;
@@ -23736,7 +23671,7 @@ class _$GArticleUpdateManyInput extends GArticleUpdateManyInput {
       (new GArticleUpdateManyInputBuilder()..update(updates))._build();
 
   _$GArticleUpdateManyInput._(
-      {this.title, this.subtitle, this.body, this.published, this.markdown})
+      {this.title, this.subtitle, this.published, this.markdown})
       : super._();
 
   @override
@@ -23754,7 +23689,6 @@ class _$GArticleUpdateManyInput extends GArticleUpdateManyInput {
     return other is GArticleUpdateManyInput &&
         title == other.title &&
         subtitle == other.subtitle &&
-        body == other.body &&
         published == other.published &&
         markdown == other.markdown;
   }
@@ -23764,7 +23698,6 @@ class _$GArticleUpdateManyInput extends GArticleUpdateManyInput {
     var _$hash = 0;
     _$hash = $jc(_$hash, title.hashCode);
     _$hash = $jc(_$hash, subtitle.hashCode);
-    _$hash = $jc(_$hash, body.hashCode);
     _$hash = $jc(_$hash, published.hashCode);
     _$hash = $jc(_$hash, markdown.hashCode);
     _$hash = $jf(_$hash);
@@ -23776,7 +23709,6 @@ class _$GArticleUpdateManyInput extends GArticleUpdateManyInput {
     return (newBuiltValueToStringHelper(r'GArticleUpdateManyInput')
           ..add('title', title)
           ..add('subtitle', subtitle)
-          ..add('body', body)
           ..add('published', published)
           ..add('markdown', markdown))
         .toString();
@@ -23796,10 +23728,6 @@ class GArticleUpdateManyInputBuilder
   String? get subtitle => _$this._subtitle;
   set subtitle(String? subtitle) => _$this._subtitle = subtitle;
 
-  GRichTextASTBuilder? _body;
-  GRichTextASTBuilder get body => _$this._body ??= new GRichTextASTBuilder();
-  set body(GRichTextASTBuilder? body) => _$this._body = body;
-
   bool? _published;
   bool? get published => _$this._published;
   set published(bool? published) => _$this._published = published;
@@ -23815,7 +23743,6 @@ class GArticleUpdateManyInputBuilder
     if ($v != null) {
       _title = $v.title;
       _subtitle = $v.subtitle;
-      _body = $v.body?.toBuilder();
       _published = $v.published;
       _markdown = $v.markdown;
       _$v = null;
@@ -23838,26 +23765,12 @@ class GArticleUpdateManyInputBuilder
   GArticleUpdateManyInput build() => _build();
 
   _$GArticleUpdateManyInput _build() {
-    _$GArticleUpdateManyInput _$result;
-    try {
-      _$result = _$v ??
-          new _$GArticleUpdateManyInput._(
-              title: title,
-              subtitle: subtitle,
-              body: _body?.build(),
-              published: published,
-              markdown: markdown);
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'body';
-        _body?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'GArticleUpdateManyInput', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$GArticleUpdateManyInput._(
+            title: title,
+            subtitle: subtitle,
+            published: published,
+            markdown: markdown);
     replace(_$result);
     return _$result;
   }

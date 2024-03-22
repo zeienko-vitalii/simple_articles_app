@@ -9,6 +9,7 @@ class AllArticlesMappers implements Mapper<GAllArticlesData_articles, Article> {
         id: from.id,
         title: from.title,
         subtitle: from.subtitle,
+        markdown: from.markdown,
         headerImage: AssetModel(
           id: from.headerImage?.id,
           url: from.headerImage?.url,
@@ -16,7 +17,6 @@ class AllArticlesMappers implements Mapper<GAllArticlesData_articles, Article> {
           size: from.headerImage?.size,
           mimeType: from.headerImage?.mimeType,
         ),
-        body: from.body?.markdown,
         published: from.published,
       );
 }

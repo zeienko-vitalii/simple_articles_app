@@ -13,9 +13,6 @@ Serializer<GAllArticlesData_articles> _$gAllArticlesDataArticlesSerializer =
 Serializer<GAllArticlesData_articles_headerImage>
     _$gAllArticlesDataArticlesHeaderImageSerializer =
     new _$GAllArticlesData_articles_headerImageSerializer();
-Serializer<GAllArticlesData_articles_body>
-    _$gAllArticlesDataArticlesBodySerializer =
-    new _$GAllArticlesData_articles_bodySerializer();
 
 class _$GAllArticlesDataSerializer
     implements StructuredSerializer<GAllArticlesData> {
@@ -119,13 +116,6 @@ class _$GAllArticlesData_articlesSerializer
             specifiedType:
                 const FullType(GAllArticlesData_articles_headerImage)));
     }
-    value = object.body;
-    if (value != null) {
-      result
-        ..add('body')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GAllArticlesData_articles_body)));
-    }
     value = object.markdown;
     if (value != null) {
       result
@@ -183,12 +173,6 @@ class _$GAllArticlesData_articlesSerializer
                   specifiedType:
                       const FullType(GAllArticlesData_articles_headerImage))!
               as GAllArticlesData_articles_headerImage);
-          break;
-        case 'body':
-          result.body.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(GAllArticlesData_articles_body))!
-              as GAllArticlesData_articles_body);
           break;
         case 'markdown':
           result.markdown = serializers.deserialize(value,
@@ -296,59 +280,6 @@ class _$GAllArticlesData_articles_headerImageSerializer
         case 'mimeType':
           result.mimeType = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$GAllArticlesData_articles_bodySerializer
-    implements StructuredSerializer<GAllArticlesData_articles_body> {
-  @override
-  final Iterable<Type> types = const [
-    GAllArticlesData_articles_body,
-    _$GAllArticlesData_articles_body
-  ];
-  @override
-  final String wireName = 'GAllArticlesData_articles_body';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GAllArticlesData_articles_body object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'markdown',
-      serializers.serialize(object.markdown,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GAllArticlesData_articles_body deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new GAllArticlesData_articles_bodyBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'markdown':
-          result.markdown = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
           break;
       }
     }
@@ -487,8 +418,6 @@ class _$GAllArticlesData_articles extends GAllArticlesData_articles {
   @override
   final GAllArticlesData_articles_headerImage? headerImage;
   @override
-  final GAllArticlesData_articles_body? body;
-  @override
   final String? markdown;
   @override
   final bool? published;
@@ -509,7 +438,6 @@ class _$GAllArticlesData_articles extends GAllArticlesData_articles {
       this.title,
       this.subtitle,
       this.headerImage,
-      this.body,
       this.markdown,
       this.published,
       this.publishedAt,
@@ -544,7 +472,6 @@ class _$GAllArticlesData_articles extends GAllArticlesData_articles {
         title == other.title &&
         subtitle == other.subtitle &&
         headerImage == other.headerImage &&
-        body == other.body &&
         markdown == other.markdown &&
         published == other.published &&
         publishedAt == other.publishedAt &&
@@ -560,7 +487,6 @@ class _$GAllArticlesData_articles extends GAllArticlesData_articles {
     _$hash = $jc(_$hash, title.hashCode);
     _$hash = $jc(_$hash, subtitle.hashCode);
     _$hash = $jc(_$hash, headerImage.hashCode);
-    _$hash = $jc(_$hash, body.hashCode);
     _$hash = $jc(_$hash, markdown.hashCode);
     _$hash = $jc(_$hash, published.hashCode);
     _$hash = $jc(_$hash, publishedAt.hashCode);
@@ -578,7 +504,6 @@ class _$GAllArticlesData_articles extends GAllArticlesData_articles {
           ..add('title', title)
           ..add('subtitle', subtitle)
           ..add('headerImage', headerImage)
-          ..add('body', body)
           ..add('markdown', markdown)
           ..add('published', published)
           ..add('publishedAt', publishedAt)
@@ -615,11 +540,6 @@ class GAllArticlesData_articlesBuilder
           new GAllArticlesData_articles_headerImageBuilder();
   set headerImage(GAllArticlesData_articles_headerImageBuilder? headerImage) =>
       _$this._headerImage = headerImage;
-
-  GAllArticlesData_articles_bodyBuilder? _body;
-  GAllArticlesData_articles_bodyBuilder get body =>
-      _$this._body ??= new GAllArticlesData_articles_bodyBuilder();
-  set body(GAllArticlesData_articles_bodyBuilder? body) => _$this._body = body;
 
   String? _markdown;
   String? get markdown => _$this._markdown;
@@ -659,7 +579,6 @@ class GAllArticlesData_articlesBuilder
       _title = $v.title;
       _subtitle = $v.subtitle;
       _headerImage = $v.headerImage?.toBuilder();
-      _body = $v.body?.toBuilder();
       _markdown = $v.markdown;
       _published = $v.published;
       _publishedAt = $v.publishedAt?.toBuilder();
@@ -696,7 +615,6 @@ class GAllArticlesData_articlesBuilder
               title: title,
               subtitle: subtitle,
               headerImage: _headerImage?.build(),
-              body: _body?.build(),
               markdown: markdown,
               published: published,
               publishedAt: _publishedAt?.build(),
@@ -707,8 +625,6 @@ class GAllArticlesData_articlesBuilder
       try {
         _$failedField = 'headerImage';
         _headerImage?.build();
-        _$failedField = 'body';
-        _body?.build();
 
         _$failedField = 'publishedAt';
         _publishedAt?.build();
@@ -891,114 +807,6 @@ class GAllArticlesData_articles_headerImageBuilder
             fileName: BuiltValueNullFieldError.checkNotNull(
                 fileName, r'GAllArticlesData_articles_headerImage', 'fileName'),
             mimeType: mimeType);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GAllArticlesData_articles_body extends GAllArticlesData_articles_body {
-  @override
-  final String G__typename;
-  @override
-  final String markdown;
-
-  factory _$GAllArticlesData_articles_body(
-          [void Function(GAllArticlesData_articles_bodyBuilder)? updates]) =>
-      (new GAllArticlesData_articles_bodyBuilder()..update(updates))._build();
-
-  _$GAllArticlesData_articles_body._(
-      {required this.G__typename, required this.markdown})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        G__typename, r'GAllArticlesData_articles_body', 'G__typename');
-    BuiltValueNullFieldError.checkNotNull(
-        markdown, r'GAllArticlesData_articles_body', 'markdown');
-  }
-
-  @override
-  GAllArticlesData_articles_body rebuild(
-          void Function(GAllArticlesData_articles_bodyBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GAllArticlesData_articles_bodyBuilder toBuilder() =>
-      new GAllArticlesData_articles_bodyBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GAllArticlesData_articles_body &&
-        G__typename == other.G__typename &&
-        markdown == other.markdown;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, markdown.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GAllArticlesData_articles_body')
-          ..add('G__typename', G__typename)
-          ..add('markdown', markdown))
-        .toString();
-  }
-}
-
-class GAllArticlesData_articles_bodyBuilder
-    implements
-        Builder<GAllArticlesData_articles_body,
-            GAllArticlesData_articles_bodyBuilder> {
-  _$GAllArticlesData_articles_body? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  String? _markdown;
-  String? get markdown => _$this._markdown;
-  set markdown(String? markdown) => _$this._markdown = markdown;
-
-  GAllArticlesData_articles_bodyBuilder() {
-    GAllArticlesData_articles_body._initializeBuilder(this);
-  }
-
-  GAllArticlesData_articles_bodyBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _markdown = $v.markdown;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GAllArticlesData_articles_body other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GAllArticlesData_articles_body;
-  }
-
-  @override
-  void update(void Function(GAllArticlesData_articles_bodyBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GAllArticlesData_articles_body build() => _build();
-
-  _$GAllArticlesData_articles_body _build() {
-    final _$result = _$v ??
-        new _$GAllArticlesData_articles_body._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename, r'GAllArticlesData_articles_body', 'G__typename'),
-            markdown: BuiltValueNullFieldError.checkNotNull(
-                markdown, r'GAllArticlesData_articles_body', 'markdown'));
     replace(_$result);
     return _$result;
   }

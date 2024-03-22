@@ -126,7 +126,6 @@ type Article implements Node & Entity {
   id: ID!
   title: String
   subtitle: String
-  body: ArticleBodyRichText
   published: Boolean
   markdown: String
 
@@ -334,23 +333,6 @@ type Article implements Node & Entity {
   ): [Version!]!
 }
 
-type ArticleBodyRichText {
-  raw: RichTextAST! @deprecated(reason: "Please use the 'json' field")
-  json: RichTextAST!
-
-  """Returns HTMl representation"""
-  html: String!
-
-  """Returns Markdown representation"""
-  markdown: String!
-
-  """Returns plain-text contents of RichText"""
-  text: String!
-  references(skip: Int, after: String, before: String, first: Int, last: Int): [ArticleBodyRichTextEmbeddedTypes!]!
-}
-
-union ArticleBodyRichTextEmbeddedTypes = Article | Asset
-
 input ArticleConnectInput {
   """Document to connect"""
   where: ArticleWhereUniqueInput!
@@ -376,7 +358,6 @@ input ArticleCreateInput {
   createdAt: DateTime
   title: String
   subtitle: String
-  body: RichTextAST
   published: Boolean
   markdown: String
   headerImage: AssetCreateOneInlineInput
@@ -640,7 +621,6 @@ enum ArticleOrderByInput {
 input ArticleUpdateInput {
   title: String
   subtitle: String
-  body: RichTextAST
   published: Boolean
   markdown: String
   headerImage: AssetUpdateOneInlineInput
@@ -675,7 +655,6 @@ input ArticleUpdateManyInlineInput {
 input ArticleUpdateManyInput {
   title: String
   subtitle: String
-  body: RichTextAST
   published: Boolean
   markdown: String
 }

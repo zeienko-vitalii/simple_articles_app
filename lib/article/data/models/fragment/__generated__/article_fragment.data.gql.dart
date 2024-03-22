@@ -19,7 +19,6 @@ abstract class GArticleFragment {
   String? get title;
   String? get subtitle;
   GArticleFragment_headerImage? get headerImage;
-  GArticleFragment_body? get body;
   String? get markdown;
   bool? get published;
   _i1.GDateTime? get publishedAt;
@@ -42,12 +41,6 @@ abstract class GArticleFragment_headerImage implements _i2.GAssetFragment {
   @override
   String? get mimeType;
   @override
-  Map<String, dynamic> toJson();
-}
-
-abstract class GArticleFragment_body {
-  String get G__typename;
-  String get markdown;
   Map<String, dynamic> toJson();
 }
 
@@ -75,8 +68,6 @@ abstract class GArticleFragmentData
   String? get subtitle;
   @override
   GArticleFragmentData_headerImage? get headerImage;
-  @override
-  GArticleFragmentData_body? get body;
   @override
   String? get markdown;
   @override
@@ -144,40 +135,6 @@ abstract class GArticleFragmentData_headerImage
           Map<String, dynamic> json) =>
       _i3.serializers.deserializeWith(
         GArticleFragmentData_headerImage.serializer,
-        json,
-      );
-}
-
-abstract class GArticleFragmentData_body
-    implements
-        Built<GArticleFragmentData_body, GArticleFragmentData_bodyBuilder>,
-        GArticleFragment_body {
-  GArticleFragmentData_body._();
-
-  factory GArticleFragmentData_body(
-          [Function(GArticleFragmentData_bodyBuilder b) updates]) =
-      _$GArticleFragmentData_body;
-
-  static void _initializeBuilder(GArticleFragmentData_bodyBuilder b) =>
-      b..G__typename = 'ArticleBodyRichText';
-
-  @override
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  @override
-  String get markdown;
-  static Serializer<GArticleFragmentData_body> get serializer =>
-      _$gArticleFragmentDataBodySerializer;
-
-  @override
-  Map<String, dynamic> toJson() => (_i3.serializers.serializeWith(
-        GArticleFragmentData_body.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GArticleFragmentData_body? fromJson(Map<String, dynamic> json) =>
-      _i3.serializers.deserializeWith(
-        GArticleFragmentData_body.serializer,
         json,
       );
 }

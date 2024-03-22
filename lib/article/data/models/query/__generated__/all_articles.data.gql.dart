@@ -69,8 +69,6 @@ abstract class GAllArticlesData_articles
   @override
   GAllArticlesData_articles_headerImage? get headerImage;
   @override
-  GAllArticlesData_articles_body? get body;
-  @override
   String? get markdown;
   @override
   bool? get published;
@@ -138,41 +136,6 @@ abstract class GAllArticlesData_articles_headerImage
           Map<String, dynamic> json) =>
       _i1.serializers.deserializeWith(
         GAllArticlesData_articles_headerImage.serializer,
-        json,
-      );
-}
-
-abstract class GAllArticlesData_articles_body
-    implements
-        Built<GAllArticlesData_articles_body,
-            GAllArticlesData_articles_bodyBuilder>,
-        _i2.GArticleFragment_body {
-  GAllArticlesData_articles_body._();
-
-  factory GAllArticlesData_articles_body(
-          [Function(GAllArticlesData_articles_bodyBuilder b) updates]) =
-      _$GAllArticlesData_articles_body;
-
-  static void _initializeBuilder(GAllArticlesData_articles_bodyBuilder b) =>
-      b..G__typename = 'ArticleBodyRichText';
-
-  @override
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  @override
-  String get markdown;
-  static Serializer<GAllArticlesData_articles_body> get serializer =>
-      _$gAllArticlesDataArticlesBodySerializer;
-
-  @override
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GAllArticlesData_articles_body.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GAllArticlesData_articles_body? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GAllArticlesData_articles_body.serializer,
         json,
       );
 }

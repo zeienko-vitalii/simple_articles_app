@@ -13,11 +13,6 @@ class Article with _$Article {
     String? title,
     String? subtitle,
     AssetModel? headerImage,
-    @JsonKey(
-      fromJson: bodyFromJson,
-      toJson: bodyToJson,
-    )
-    String? body,
     String? markdown,
     bool? published,
   }) = _Article;
@@ -26,12 +21,4 @@ class Article with _$Article {
 
   factory Article.fromJson(Map<String, dynamic> json) =>
       _$ArticleFromJson(json);
-}
-
-String? bodyFromJson(Map<String, dynamic> json) {
-  return json['markdown'] as String;
-}
-
-Map<String, dynamic> bodyToJson(String? body) {
-  return {'text': body};
 }

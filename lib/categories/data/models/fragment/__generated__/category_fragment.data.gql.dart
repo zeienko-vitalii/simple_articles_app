@@ -51,8 +51,6 @@ abstract class GCategoryFragment_articles__asArticle
   @override
   GCategoryFragment_articles__asArticle_headerImage? get headerImage;
   @override
-  GCategoryFragment_articles__asArticle_body? get body;
-  @override
   String? get markdown;
   @override
   bool? get published;
@@ -80,16 +78,6 @@ abstract class GCategoryFragment_articles__asArticle_headerImage
   String get fileName;
   @override
   String? get mimeType;
-  @override
-  Map<String, dynamic> toJson();
-}
-
-abstract class GCategoryFragment_articles__asArticle_body
-    implements _i1.GArticleFragment_body {
-  @override
-  String get G__typename;
-  @override
-  String get markdown;
   @override
   Map<String, dynamic> toJson();
 }
@@ -219,8 +207,6 @@ abstract class GCategoryFragmentData_articles__asArticle
   @override
   GCategoryFragmentData_articles__asArticle_headerImage? get headerImage;
   @override
-  GCategoryFragmentData_articles__asArticle_body? get body;
-  @override
   String? get markdown;
   @override
   bool? get published;
@@ -290,43 +276,6 @@ abstract class GCategoryFragmentData_articles__asArticle_headerImage
           Map<String, dynamic> json) =>
       _i4.serializers.deserializeWith(
         GCategoryFragmentData_articles__asArticle_headerImage.serializer,
-        json,
-      );
-}
-
-abstract class GCategoryFragmentData_articles__asArticle_body
-    implements
-        Built<GCategoryFragmentData_articles__asArticle_body,
-            GCategoryFragmentData_articles__asArticle_bodyBuilder>,
-        _i1.GArticleFragment_body {
-  GCategoryFragmentData_articles__asArticle_body._();
-
-  factory GCategoryFragmentData_articles__asArticle_body(
-      [Function(GCategoryFragmentData_articles__asArticle_bodyBuilder b)
-          updates]) = _$GCategoryFragmentData_articles__asArticle_body;
-
-  static void _initializeBuilder(
-          GCategoryFragmentData_articles__asArticle_bodyBuilder b) =>
-      b..G__typename = 'ArticleBodyRichText';
-
-  @override
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  @override
-  String get markdown;
-  static Serializer<GCategoryFragmentData_articles__asArticle_body>
-      get serializer => _$gCategoryFragmentDataArticlesAsArticleBodySerializer;
-
-  @override
-  Map<String, dynamic> toJson() => (_i4.serializers.serializeWith(
-        GCategoryFragmentData_articles__asArticle_body.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GCategoryFragmentData_articles__asArticle_body? fromJson(
-          Map<String, dynamic> json) =>
-      _i4.serializers.deserializeWith(
-        GCategoryFragmentData_articles__asArticle_body.serializer,
         json,
       );
 }

@@ -6,7 +6,7 @@ class GraphQlClient {
   /// Initialises [_client] with setting cache store
   factory GraphQlClient() {
     const url = String.fromEnvironment('HYGRAPH_URL');
-    debugLog('GraphQlClient: url: $url');
+    Log().d('GraphQlClient: url: $url');
     _client ??= Client(
       link: HttpLink(
         url,
@@ -25,13 +25,13 @@ class GraphQlClient {
 
   Client get client {
     if (_client == null) {
-      debugLog('GraphQlClient.safeClient: client is null');
+      Log().d('GraphQlClient.safeClient: client is null');
     }
     return _client!;
   }
 
   void dispose() {
-    debugLog('GraphQlClient.dispose');
+    Log().d('GraphQlClient.dispose');
     _client?.dispose();
   }
 }

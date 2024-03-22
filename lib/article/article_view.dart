@@ -45,7 +45,7 @@ class _ArticleViewState extends State<ArticleView> {
             onStretchTrigger: () async {
               // Triggers when stretching
             },
-            stretchTriggerOffset: 300.0,
+            stretchTriggerOffset: 400.0,
             expandedHeight: 300.0,
             flexibleSpace: FlexibleSpaceBar(
               titlePadding: const EdgeInsets.symmetric(
@@ -53,7 +53,10 @@ class _ArticleViewState extends State<ArticleView> {
                 vertical: 8.0,
               ),
               title: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                filter: ImageFilter.blur(
+                  sigmaX: 5.0,
+                  sigmaY: 5.0,
+                ),
                 child: Text(
                   title,
                   style: const TextStyle(

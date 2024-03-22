@@ -14,7 +14,6 @@ _$ArticleImpl _$$ArticleImplFromJson(Map<String, dynamic> json) =>
       headerImage: json['headerImage'] == null
           ? null
           : AssetModel.fromJson(json['headerImage'] as Map<String, dynamic>),
-      body: bodyFromJson(json['body'] as Map<String, dynamic>),
       markdown: json['markdown'] as String?,
       published: json['published'] as bool?,
     );
@@ -25,7 +24,6 @@ Map<String, dynamic> _$$ArticleImplToJson(_$ArticleImpl instance) =>
       'title': instance.title,
       'subtitle': instance.subtitle,
       'headerImage': instance.headerImage?.toJson(),
-      'body': bodyToJson(instance.body),
       'markdown': instance.markdown,
       'published': instance.published,
     };

@@ -8,10 +8,7 @@ import 'package:ferry_exec/ferry_exec.dart';
 import 'package:gql_code_builder/src/serializers/operation_serializer.dart'
     show OperationSerializer;
 import 'package:simple_articles_app/article/data/models/fragment/__generated__/article_fragment.data.gql.dart'
-    show
-        GArticleFragmentData,
-        GArticleFragmentData_body,
-        GArticleFragmentData_headerImage;
+    show GArticleFragmentData, GArticleFragmentData_headerImage;
 import 'package:simple_articles_app/article/data/models/fragment/__generated__/article_fragment.req.gql.dart'
     show GArticleFragmentReq;
 import 'package:simple_articles_app/article/data/models/fragment/__generated__/article_fragment.var.gql.dart'
@@ -26,7 +23,6 @@ import 'package:simple_articles_app/article/data/models/query/__generated__/all_
     show
         GAllArticlesData,
         GAllArticlesData_articles,
-        GAllArticlesData_articles_body,
         GAllArticlesData_articles_headerImage;
 import 'package:simple_articles_app/article/data/models/query/__generated__/all_articles.req.gql.dart'
     show GAllArticlesReq;
@@ -37,7 +33,6 @@ import 'package:simple_articles_app/categories/data/models/fragment/__generated_
         GCategoryFragmentData_articles,
         GCategoryFragmentData,
         GCategoryFragmentData_articles__asArticle,
-        GCategoryFragmentData_articles__asArticle_body,
         GCategoryFragmentData_articles__asArticle_headerImage,
         GCategoryFragmentData_articles__base;
 import 'package:simple_articles_app/categories/data/models/fragment/__generated__/category_fragment.req.gql.dart'
@@ -50,7 +45,6 @@ import 'package:simple_articles_app/categories/data/models/query/__generated__/a
         GAllCategoriesData,
         GAllCategoriesData_categories,
         GAllCategoriesData_categories_articles__asArticle,
-        GAllCategoriesData_categories_articles__asArticle_body,
         GAllCategoriesData_categories_articles__asArticle_headerImage,
         GAllCategoriesData_categories_articles__base;
 import 'package:simple_articles_app/categories/data/models/query/__generated__/all_categories.req.gql.dart'
@@ -230,14 +224,12 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
 @SerializersFor([
   GAllArticlesData,
   GAllArticlesData_articles,
-  GAllArticlesData_articles_body,
   GAllArticlesData_articles_headerImage,
   GAllArticlesReq,
   GAllArticlesVars,
   GAllCategoriesData,
   GAllCategoriesData_categories,
   GAllCategoriesData_categories_articles__asArticle,
-  GAllCategoriesData_categories_articles__asArticle_body,
   GAllCategoriesData_categories_articles__asArticle_headerImage,
   GAllCategoriesData_categories_articles__base,
   GAllCategoriesReq,
@@ -247,7 +239,6 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GArticleCreateManyInlineInput,
   GArticleCreateOneInlineInput,
   GArticleFragmentData,
-  GArticleFragmentData_body,
   GArticleFragmentData_headerImage,
   GArticleFragmentReq,
   GArticleFragmentVars,
@@ -319,7 +310,6 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GCategoryCreateOneInlineInput,
   GCategoryFragmentData,
   GCategoryFragmentData_articles__asArticle,
-  GCategoryFragmentData_articles__asArticle_body,
   GCategoryFragmentData_articles__asArticle_headerImage,
   GCategoryFragmentData_articles__base,
   GCategoryFragmentReq,

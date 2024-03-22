@@ -176,8 +176,6 @@ abstract class GAllCategoriesData_categories_articles__asArticle
   GAllCategoriesData_categories_articles__asArticle_headerImage?
       get headerImage;
   @override
-  GAllCategoriesData_categories_articles__asArticle_body? get body;
-  @override
   String? get markdown;
   @override
   bool? get published;
@@ -256,42 +254,4 @@ abstract class GAllCategoriesData_categories_articles__asArticle_headerImage
                 .serializer,
             json,
           );
-}
-
-abstract class GAllCategoriesData_categories_articles__asArticle_body
-    implements
-        Built<GAllCategoriesData_categories_articles__asArticle_body,
-            GAllCategoriesData_categories_articles__asArticle_bodyBuilder>,
-        _i4.GArticleFragment_body {
-  GAllCategoriesData_categories_articles__asArticle_body._();
-
-  factory GAllCategoriesData_categories_articles__asArticle_body(
-      [Function(GAllCategoriesData_categories_articles__asArticle_bodyBuilder b)
-          updates]) = _$GAllCategoriesData_categories_articles__asArticle_body;
-
-  static void _initializeBuilder(
-          GAllCategoriesData_categories_articles__asArticle_bodyBuilder b) =>
-      b..G__typename = 'ArticleBodyRichText';
-
-  @override
-  @BuiltValueField(wireName: '__typename')
-  String get G__typename;
-  @override
-  String get markdown;
-  static Serializer<GAllCategoriesData_categories_articles__asArticle_body>
-      get serializer =>
-          _$gAllCategoriesDataCategoriesArticlesAsArticleBodySerializer;
-
-  @override
-  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GAllCategoriesData_categories_articles__asArticle_body.serializer,
-        this,
-      ) as Map<String, dynamic>);
-
-  static GAllCategoriesData_categories_articles__asArticle_body? fromJson(
-          Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(
-        GAllCategoriesData_categories_articles__asArticle_body.serializer,
-        json,
-      );
 }

@@ -274,7 +274,6 @@ abstract class GArticleCreateInput
   GDateTime? get createdAt;
   String? get title;
   String? get subtitle;
-  GRichTextAST? get body;
   bool? get published;
   String? get markdown;
   GAssetCreateOneInlineInput? get headerImage;
@@ -522,7 +521,6 @@ abstract class GArticleUpdateInput
 
   String? get title;
   String? get subtitle;
-  GRichTextAST? get body;
   bool? get published;
   String? get markdown;
   GAssetUpdateOneInlineInput? get headerImage;
@@ -584,7 +582,6 @@ abstract class GArticleUpdateManyInput
 
   String? get title;
   String? get subtitle;
-  GRichTextAST? get body;
   bool? get published;
   String? get markdown;
   static Serializer<GArticleUpdateManyInput> get serializer =>
@@ -5274,10 +5271,6 @@ const Map<String, Set<String>> possibleTypesMap = {
     'ScheduledOperation',
     'ScheduledRelease',
     'User',
-  },
-  'ArticleBodyRichTextEmbeddedTypes': {
-    'Article',
-    'Asset',
   },
   'CategoryArticles': {'Article'},
   'ScheduledOperationAffectedDocument': {

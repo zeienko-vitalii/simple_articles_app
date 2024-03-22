@@ -24,8 +24,6 @@ mixin _$Article {
   String? get title => throw _privateConstructorUsedError;
   String? get subtitle => throw _privateConstructorUsedError;
   AssetModel? get headerImage => throw _privateConstructorUsedError;
-  @JsonKey(fromJson: bodyFromJson, toJson: bodyToJson)
-  String? get body => throw _privateConstructorUsedError;
   String? get markdown => throw _privateConstructorUsedError;
   bool? get published => throw _privateConstructorUsedError;
 
@@ -44,7 +42,6 @@ abstract class $ArticleCopyWith<$Res> {
       String? title,
       String? subtitle,
       AssetModel? headerImage,
-      @JsonKey(fromJson: bodyFromJson, toJson: bodyToJson) String? body,
       String? markdown,
       bool? published});
 
@@ -68,7 +65,6 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
     Object? title = freezed,
     Object? subtitle = freezed,
     Object? headerImage = freezed,
-    Object? body = freezed,
     Object? markdown = freezed,
     Object? published = freezed,
   }) {
@@ -89,10 +85,6 @@ class _$ArticleCopyWithImpl<$Res, $Val extends Article>
           ? _value.headerImage
           : headerImage // ignore: cast_nullable_to_non_nullable
               as AssetModel?,
-      body: freezed == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String?,
       markdown: freezed == markdown
           ? _value.markdown
           : markdown // ignore: cast_nullable_to_non_nullable
@@ -129,7 +121,6 @@ abstract class _$$ArticleImplCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       String? title,
       String? subtitle,
       AssetModel? headerImage,
-      @JsonKey(fromJson: bodyFromJson, toJson: bodyToJson) String? body,
       String? markdown,
       bool? published});
 
@@ -152,7 +143,6 @@ class __$$ArticleImplCopyWithImpl<$Res>
     Object? title = freezed,
     Object? subtitle = freezed,
     Object? headerImage = freezed,
-    Object? body = freezed,
     Object? markdown = freezed,
     Object? published = freezed,
   }) {
@@ -173,10 +163,6 @@ class __$$ArticleImplCopyWithImpl<$Res>
           ? _value.headerImage
           : headerImage // ignore: cast_nullable_to_non_nullable
               as AssetModel?,
-      body: freezed == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as String?,
       markdown: freezed == markdown
           ? _value.markdown
           : markdown // ignore: cast_nullable_to_non_nullable
@@ -197,7 +183,6 @@ class _$ArticleImpl extends _Article {
       this.title,
       this.subtitle,
       this.headerImage,
-      @JsonKey(fromJson: bodyFromJson, toJson: bodyToJson) this.body,
       this.markdown,
       this.published})
       : super._();
@@ -214,16 +199,13 @@ class _$ArticleImpl extends _Article {
   @override
   final AssetModel? headerImage;
   @override
-  @JsonKey(fromJson: bodyFromJson, toJson: bodyToJson)
-  final String? body;
-  @override
   final String? markdown;
   @override
   final bool? published;
 
   @override
   String toString() {
-    return 'Article(id: $id, title: $title, subtitle: $subtitle, headerImage: $headerImage, body: $body, markdown: $markdown, published: $published)';
+    return 'Article(id: $id, title: $title, subtitle: $subtitle, headerImage: $headerImage, markdown: $markdown, published: $published)';
   }
 
   @override
@@ -237,7 +219,6 @@ class _$ArticleImpl extends _Article {
                 other.subtitle == subtitle) &&
             (identical(other.headerImage, headerImage) ||
                 other.headerImage == headerImage) &&
-            (identical(other.body, body) || other.body == body) &&
             (identical(other.markdown, markdown) ||
                 other.markdown == markdown) &&
             (identical(other.published, published) ||
@@ -247,7 +228,7 @@ class _$ArticleImpl extends _Article {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, title, subtitle, headerImage, body, markdown, published);
+      runtimeType, id, title, subtitle, headerImage, markdown, published);
 
   @JsonKey(ignore: true)
   @override
@@ -269,7 +250,6 @@ abstract class _Article extends Article {
       final String? title,
       final String? subtitle,
       final AssetModel? headerImage,
-      @JsonKey(fromJson: bodyFromJson, toJson: bodyToJson) final String? body,
       final String? markdown,
       final bool? published}) = _$ArticleImpl;
   const _Article._() : super._();
@@ -284,9 +264,6 @@ abstract class _Article extends Article {
   String? get subtitle;
   @override
   AssetModel? get headerImage;
-  @override
-  @JsonKey(fromJson: bodyFromJson, toJson: bodyToJson)
-  String? get body;
   @override
   String? get markdown;
   @override

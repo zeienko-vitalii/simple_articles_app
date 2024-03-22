@@ -4,6 +4,7 @@ import 'package:simple_articles_app/categories/data/models/query/__generated__/a
 import 'package:simple_articles_app/categories/data/models/query/__generated__/all_categories.req.gql.dart';
 import 'package:simple_articles_app/categories/data/models/query/__generated__/all_categories.var.gql.dart';
 import 'package:simple_articles_app/categories/model/category.dart';
+import 'package:simple_articles_app/utils/logger.dart';
 
 class CategoryService {
   CategoryService({
@@ -16,17 +17,21 @@ class CategoryService {
 
   Future<List<Category>> getAllCategories() async {
     try {
+      // client.request returns Stream but it results only with one response.
+      final request = client.request(GAllCategoriesReq()).first;
       final OperationResponse<GAllCategoriesData, GAllCategoriesVars> event =
-          await client.request(GAllCategoriesReq()).first;
+          await request;
       if (event.hasErrors) {
         throw Exception(event.graphqlErrors);
       }
-      final categories = event.data?.categories;
-      final result = categories?.map((e) => allCategoriesMapper.map(e));
 
+      final List<GAllCategoriesData_categories>? categories =
+          event.data?.categories.toList();
+
+      final result = categories?.map(allCategoriesMapper.map);
       return [...?result];
     } catch (e, stk) {
-      print("Error: $e Stack: $stk");
+      Log().e(e, stk);
       rethrow;
     }
   }

@@ -11,8 +11,6 @@ Serializer<GArticleFragmentData> _$gArticleFragmentDataSerializer =
 Serializer<GArticleFragmentData_headerImage>
     _$gArticleFragmentDataHeaderImageSerializer =
     new _$GArticleFragmentData_headerImageSerializer();
-Serializer<GArticleFragmentData_body> _$gArticleFragmentDataBodySerializer =
-    new _$GArticleFragmentData_bodySerializer();
 
 class _$GArticleFragmentDataSerializer
     implements StructuredSerializer<GArticleFragmentData> {
@@ -62,13 +60,6 @@ class _$GArticleFragmentDataSerializer
         ..add('headerImage')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(GArticleFragmentData_headerImage)));
-    }
-    value = object.body;
-    if (value != null) {
-      result
-        ..add('body')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(GArticleFragmentData_body)));
     }
     value = object.markdown;
     if (value != null) {
@@ -127,11 +118,6 @@ class _$GArticleFragmentDataSerializer
                   specifiedType:
                       const FullType(GArticleFragmentData_headerImage))!
               as GArticleFragmentData_headerImage);
-          break;
-        case 'body':
-          result.body.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GArticleFragmentData_body))!
-              as GArticleFragmentData_body);
           break;
         case 'markdown':
           result.markdown = serializers.deserialize(value,
@@ -247,59 +233,6 @@ class _$GArticleFragmentData_headerImageSerializer
   }
 }
 
-class _$GArticleFragmentData_bodySerializer
-    implements StructuredSerializer<GArticleFragmentData_body> {
-  @override
-  final Iterable<Type> types = const [
-    GArticleFragmentData_body,
-    _$GArticleFragmentData_body
-  ];
-  @override
-  final String wireName = 'GArticleFragmentData_body';
-
-  @override
-  Iterable<Object?> serialize(
-      Serializers serializers, GArticleFragmentData_body object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '__typename',
-      serializers.serialize(object.G__typename,
-          specifiedType: const FullType(String)),
-      'markdown',
-      serializers.serialize(object.markdown,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  GArticleFragmentData_body deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new GArticleFragmentData_bodyBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current! as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case '__typename':
-          result.G__typename = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-        case 'markdown':
-          result.markdown = serializers.deserialize(value,
-              specifiedType: const FullType(String))! as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
 class _$GArticleFragmentData extends GArticleFragmentData {
   @override
   final String G__typename;
@@ -311,8 +244,6 @@ class _$GArticleFragmentData extends GArticleFragmentData {
   final String? subtitle;
   @override
   final GArticleFragmentData_headerImage? headerImage;
-  @override
-  final GArticleFragmentData_body? body;
   @override
   final String? markdown;
   @override
@@ -334,7 +265,6 @@ class _$GArticleFragmentData extends GArticleFragmentData {
       this.title,
       this.subtitle,
       this.headerImage,
-      this.body,
       this.markdown,
       this.published,
       this.publishedAt,
@@ -368,7 +298,6 @@ class _$GArticleFragmentData extends GArticleFragmentData {
         title == other.title &&
         subtitle == other.subtitle &&
         headerImage == other.headerImage &&
-        body == other.body &&
         markdown == other.markdown &&
         published == other.published &&
         publishedAt == other.publishedAt &&
@@ -384,7 +313,6 @@ class _$GArticleFragmentData extends GArticleFragmentData {
     _$hash = $jc(_$hash, title.hashCode);
     _$hash = $jc(_$hash, subtitle.hashCode);
     _$hash = $jc(_$hash, headerImage.hashCode);
-    _$hash = $jc(_$hash, body.hashCode);
     _$hash = $jc(_$hash, markdown.hashCode);
     _$hash = $jc(_$hash, published.hashCode);
     _$hash = $jc(_$hash, publishedAt.hashCode);
@@ -402,7 +330,6 @@ class _$GArticleFragmentData extends GArticleFragmentData {
           ..add('title', title)
           ..add('subtitle', subtitle)
           ..add('headerImage', headerImage)
-          ..add('body', body)
           ..add('markdown', markdown)
           ..add('published', published)
           ..add('publishedAt', publishedAt)
@@ -437,11 +364,6 @@ class GArticleFragmentDataBuilder
       _$this._headerImage ??= new GArticleFragmentData_headerImageBuilder();
   set headerImage(GArticleFragmentData_headerImageBuilder? headerImage) =>
       _$this._headerImage = headerImage;
-
-  GArticleFragmentData_bodyBuilder? _body;
-  GArticleFragmentData_bodyBuilder get body =>
-      _$this._body ??= new GArticleFragmentData_bodyBuilder();
-  set body(GArticleFragmentData_bodyBuilder? body) => _$this._body = body;
 
   String? _markdown;
   String? get markdown => _$this._markdown;
@@ -481,7 +403,6 @@ class GArticleFragmentDataBuilder
       _title = $v.title;
       _subtitle = $v.subtitle;
       _headerImage = $v.headerImage?.toBuilder();
-      _body = $v.body?.toBuilder();
       _markdown = $v.markdown;
       _published = $v.published;
       _publishedAt = $v.publishedAt?.toBuilder();
@@ -518,7 +439,6 @@ class GArticleFragmentDataBuilder
               title: title,
               subtitle: subtitle,
               headerImage: _headerImage?.build(),
-              body: _body?.build(),
               markdown: markdown,
               published: published,
               publishedAt: _publishedAt?.build(),
@@ -529,8 +449,6 @@ class GArticleFragmentDataBuilder
       try {
         _$failedField = 'headerImage';
         _headerImage?.build();
-        _$failedField = 'body';
-        _body?.build();
 
         _$failedField = 'publishedAt';
         _publishedAt?.build();
@@ -708,113 +626,6 @@ class GArticleFragmentData_headerImageBuilder
             fileName: BuiltValueNullFieldError.checkNotNull(
                 fileName, r'GArticleFragmentData_headerImage', 'fileName'),
             mimeType: mimeType);
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$GArticleFragmentData_body extends GArticleFragmentData_body {
-  @override
-  final String G__typename;
-  @override
-  final String markdown;
-
-  factory _$GArticleFragmentData_body(
-          [void Function(GArticleFragmentData_bodyBuilder)? updates]) =>
-      (new GArticleFragmentData_bodyBuilder()..update(updates))._build();
-
-  _$GArticleFragmentData_body._(
-      {required this.G__typename, required this.markdown})
-      : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-        G__typename, r'GArticleFragmentData_body', 'G__typename');
-    BuiltValueNullFieldError.checkNotNull(
-        markdown, r'GArticleFragmentData_body', 'markdown');
-  }
-
-  @override
-  GArticleFragmentData_body rebuild(
-          void Function(GArticleFragmentData_bodyBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  GArticleFragmentData_bodyBuilder toBuilder() =>
-      new GArticleFragmentData_bodyBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is GArticleFragmentData_body &&
-        G__typename == other.G__typename &&
-        markdown == other.markdown;
-  }
-
-  @override
-  int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, markdown.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper(r'GArticleFragmentData_body')
-          ..add('G__typename', G__typename)
-          ..add('markdown', markdown))
-        .toString();
-  }
-}
-
-class GArticleFragmentData_bodyBuilder
-    implements
-        Builder<GArticleFragmentData_body, GArticleFragmentData_bodyBuilder> {
-  _$GArticleFragmentData_body? _$v;
-
-  String? _G__typename;
-  String? get G__typename => _$this._G__typename;
-  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
-
-  String? _markdown;
-  String? get markdown => _$this._markdown;
-  set markdown(String? markdown) => _$this._markdown = markdown;
-
-  GArticleFragmentData_bodyBuilder() {
-    GArticleFragmentData_body._initializeBuilder(this);
-  }
-
-  GArticleFragmentData_bodyBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _G__typename = $v.G__typename;
-      _markdown = $v.markdown;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(GArticleFragmentData_body other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GArticleFragmentData_body;
-  }
-
-  @override
-  void update(void Function(GArticleFragmentData_bodyBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  GArticleFragmentData_body build() => _build();
-
-  _$GArticleFragmentData_body _build() {
-    final _$result = _$v ??
-        new _$GArticleFragmentData_body._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename, r'GArticleFragmentData_body', 'G__typename'),
-            markdown: BuiltValueNullFieldError.checkNotNull(
-                markdown, r'GArticleFragmentData_body', 'markdown'));
     replace(_$result);
     return _$result;
   }

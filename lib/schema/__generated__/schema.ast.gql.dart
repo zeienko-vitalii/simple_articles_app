@@ -456,15 +456,6 @@ const Article = _i1.ObjectTypeDefinitionNode(
       ),
     ),
     _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'body'),
-      directives: [],
-      args: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'ArticleBodyRichText'),
-        isNonNull: false,
-      ),
-    ),
-    _i1.FieldDefinitionNode(
       name: _i1.NameNode(value: 'published'),
       directives: [],
       args: [],
@@ -833,143 +824,6 @@ const Article = _i1.ObjectTypeDefinitionNode(
     ),
   ],
 );
-const ArticleBodyRichText = _i1.ObjectTypeDefinitionNode(
-  name: _i1.NameNode(value: 'ArticleBodyRichText'),
-  directives: [],
-  interfaces: [],
-  fields: [
-    _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'raw'),
-      directives: [
-        _i1.DirectiveNode(
-          name: _i1.NameNode(value: 'deprecated'),
-          arguments: [
-            _i1.ArgumentNode(
-              name: _i1.NameNode(value: 'reason'),
-              value: _i1.StringValueNode(
-                value: 'Please use the \'json\' field',
-                isBlock: false,
-              ),
-            )
-          ],
-        )
-      ],
-      args: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'RichTextAST'),
-        isNonNull: true,
-      ),
-    ),
-    _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'json'),
-      directives: [],
-      args: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'RichTextAST'),
-        isNonNull: true,
-      ),
-    ),
-    _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'html'),
-      directives: [],
-      args: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'String'),
-        isNonNull: true,
-      ),
-    ),
-    _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'markdown'),
-      directives: [],
-      args: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'String'),
-        isNonNull: true,
-      ),
-    ),
-    _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'text'),
-      directives: [],
-      args: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'String'),
-        isNonNull: true,
-      ),
-    ),
-    _i1.FieldDefinitionNode(
-      name: _i1.NameNode(value: 'references'),
-      directives: [],
-      args: [
-        _i1.InputValueDefinitionNode(
-          name: _i1.NameNode(value: 'skip'),
-          directives: [],
-          type: _i1.NamedTypeNode(
-            name: _i1.NameNode(value: 'Int'),
-            isNonNull: false,
-          ),
-          defaultValue: null,
-        ),
-        _i1.InputValueDefinitionNode(
-          name: _i1.NameNode(value: 'after'),
-          directives: [],
-          type: _i1.NamedTypeNode(
-            name: _i1.NameNode(value: 'String'),
-            isNonNull: false,
-          ),
-          defaultValue: null,
-        ),
-        _i1.InputValueDefinitionNode(
-          name: _i1.NameNode(value: 'before'),
-          directives: [],
-          type: _i1.NamedTypeNode(
-            name: _i1.NameNode(value: 'String'),
-            isNonNull: false,
-          ),
-          defaultValue: null,
-        ),
-        _i1.InputValueDefinitionNode(
-          name: _i1.NameNode(value: 'first'),
-          directives: [],
-          type: _i1.NamedTypeNode(
-            name: _i1.NameNode(value: 'Int'),
-            isNonNull: false,
-          ),
-          defaultValue: null,
-        ),
-        _i1.InputValueDefinitionNode(
-          name: _i1.NameNode(value: 'last'),
-          directives: [],
-          type: _i1.NamedTypeNode(
-            name: _i1.NameNode(value: 'Int'),
-            isNonNull: false,
-          ),
-          defaultValue: null,
-        ),
-      ],
-      type: _i1.ListTypeNode(
-        type: _i1.NamedTypeNode(
-          name: _i1.NameNode(value: 'ArticleBodyRichTextEmbeddedTypes'),
-          isNonNull: true,
-        ),
-        isNonNull: true,
-      ),
-    ),
-  ],
-);
-const ArticleBodyRichTextEmbeddedTypes = _i1.UnionTypeDefinitionNode(
-  name: _i1.NameNode(value: 'ArticleBodyRichTextEmbeddedTypes'),
-  directives: [],
-  types: [
-    _i1.NamedTypeNode(
-      name: _i1.NameNode(value: 'Article'),
-      isNonNull: false,
-    ),
-    _i1.NamedTypeNode(
-      name: _i1.NameNode(value: 'Asset'),
-      isNonNull: false,
-    ),
-  ],
-);
 const ArticleConnectInput = _i1.InputObjectTypeDefinitionNode(
   name: _i1.NameNode(value: 'ArticleConnectInput'),
   directives: [],
@@ -1067,15 +921,6 @@ const ArticleCreateInput = _i1.InputObjectTypeDefinitionNode(
       directives: [],
       type: _i1.NamedTypeNode(
         name: _i1.NameNode(value: 'String'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'body'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'RichTextAST'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -2094,15 +1939,6 @@ const ArticleUpdateInput = _i1.InputObjectTypeDefinitionNode(
       defaultValue: null,
     ),
     _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'body'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'RichTextAST'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
       name: _i1.NameNode(value: 'published'),
       directives: [],
       type: _i1.NamedTypeNode(
@@ -2248,15 +2084,6 @@ const ArticleUpdateManyInput = _i1.InputObjectTypeDefinitionNode(
       directives: [],
       type: _i1.NamedTypeNode(
         name: _i1.NameNode(value: 'String'),
-        isNonNull: false,
-      ),
-      defaultValue: null,
-    ),
-    _i1.InputValueDefinitionNode(
-      name: _i1.NameNode(value: 'body'),
-      directives: [],
-      type: _i1.NamedTypeNode(
-        name: _i1.NameNode(value: 'RichTextAST'),
         isNonNull: false,
       ),
       defaultValue: null,
@@ -21362,8 +21189,6 @@ const document = _i1.DocumentNode(definitions: [
   untitled,
   Aggregate,
   Article,
-  ArticleBodyRichText,
-  ArticleBodyRichTextEmbeddedTypes,
   ArticleConnectInput,
   ArticleConnection,
   ArticleCreateInput,
